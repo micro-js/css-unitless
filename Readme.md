@@ -15,8 +15,15 @@ List of unitless css properties
 ## Usage
 
 ```js
-var cssUnitlessProps = require('@f/css-unitless')
+var unitless = require('@f/css-unitless')
 
+function defaultUnits (key, value) {
+  if (!unitless[key] && isNumber(value)) {
+    return value + 'px'
+  }
+
+  return value
+}
 ```
 
 ## License
